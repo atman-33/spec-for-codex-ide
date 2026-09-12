@@ -153,7 +153,7 @@ describe("CreateSteeringInputController", () => {
 		await controller.open();
 
 		expect((window as any).createWebviewPanel).toHaveBeenCalledWith(
-			"kiro.createSteeringDialog",
+			"spec-codex.createSteeringDialog",
 			"Create Custom Steering",
 			{
 				viewColumn: ViewColumn.Active,

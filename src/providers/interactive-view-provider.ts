@@ -8,7 +8,7 @@ import type {
 import { getWebviewContent } from "../utils/get-webview-content";
 
 export class InteractiveViewProvider implements WebviewViewProvider {
-	static readonly viewId = "kiro-for-codex-ide.interactiveView";
+	static readonly viewId = "spec-for-codex-ide.interactiveView";
 
 	private _view?: WebviewView;
 	private readonly _extensionUri: Uri;

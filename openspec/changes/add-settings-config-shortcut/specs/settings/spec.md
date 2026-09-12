@@ -3,7 +3,7 @@
 The Settings view MUST expose a command that opens the global Codex configuration file so users can review or edit `config.toml` without leaving VS Code.
 
 #### Scenario: Launch global config from Settings view
-- **GIVEN** the Kiro for Codex IDE extension is active and the user opens the Settings view
+- **GIVEN** the Spec for Codex IDE extension is active and the user opens the Settings view
 - **WHEN** they invoke the "Open Global Config (config.toml)" action
 - **THEN** the extension opens the file located at the platform-specific global path (`~/.codex/config.toml` on Linux/macOS or `%USERPROFILE%\.codex\config.toml` on Windows) in an editor tab
 - **AND** it notifies the user if the file is missing so they know to create it manually.

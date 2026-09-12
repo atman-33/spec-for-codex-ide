@@ -63,7 +63,7 @@ const ensureWorkspaceCodexGitignore = async (folder: WorkspaceFolder) => {
 
 export async function activate(context: ExtensionContext) {
 	// Create output channel for debugging
-	outputChannel = window.createOutputChannel("Kiro for Codex - Debug");
+	outputChannel = window.createOutputChannel("Spec for Codex - Debug");
 
 	// Initialize PromptLoader
 	try {
@@ -107,21 +107,21 @@ export async function activate(context: ExtensionContext) {
 
 	context.subscriptions.push(
 		window.registerTreeDataProvider(
-			"kiro-codex-ide.views.overview",
+			"spec-codex-ide.views.overview",
 			overviewProvider
 		),
 		window.registerTreeDataProvider(
-			"kiro-codex-ide.views.specExplorer",
+			"spec-codex-ide.views.specExplorer",
 			specExplorer
 		),
 		window.registerTreeDataProvider(
-			"kiro-codex-ide.views.steeringExplorer",
+			"spec-codex-ide.views.steeringExplorer",
 			steeringExplorer
 		)
 	);
 	context.subscriptions.push(
 		window.registerTreeDataProvider(
-			"kiro-codex-ide.views.promptsExplorer",
+			"spec-codex-ide.views.promptsExplorer",
 			promptsExplorer
 		)
 	);
@@ -211,7 +211,7 @@ function registerCommands(
 	promptsExplorer: PromptsExplorerProvider
 ) {
 	const createSpecCommand = commands.registerCommand(
-		"kiro-codex-ide.spec.create",
+		"spec-codex-ide.spec.create",
 		async () => {
 			outputChannel.appendLine(
 				`[Spec] create command triggered at ${new Date().toISOString()}`
@@ -230,28 +230,28 @@ function registerCommands(
 	context.subscriptions.push(
 		createSpecCommand,
 		commands.registerCommand(
-			"kiro-codex-ide.spec.navigate.requirements",
+			"spec-codex-ide.spec.navigate.requirements",
 			async (specName: string) => {
 				await specManager.navigateToDocument(specName, "requirements");
 			}
 		),
 
 		commands.registerCommand(
-			"kiro-codex-ide.spec.navigate.design",
+			"spec-codex-ide.spec.navigate.design",
 			async (specName: string) => {
 				await specManager.navigateToDocument(specName, "design");
 			}
 		),
 
 		commands.registerCommand(
-			"kiro-codex-ide.spec.navigate.tasks",
+			"spec-codex-ide.spec.navigate.tasks",
 			async (specName: string) => {
 				await specManager.navigateToDocument(specName, "tasks");
 			}
 		),
 
 		commands.registerCommand(
-			"kiro-codex-ide.spec.implTask",
+			"spec-codex-ide.spec.implTask",
 			async (documentUri: Uri, lineNumber: number, taskDescription: string) => {
 				outputChannel.appendLine(
 					`[Task Execute] Line ${lineNumber + 1}: ${taskDescription}`
@@ -271,7 +271,7 @@ function registerCommands(
 			}
 		),
 		// biome-ignore lint/suspicious/useAwait: ignore
-		commands.registerCommand("kiro-codex-ide.spec.refresh", async () => {
+		commands.registerCommand("spec-codex-ide.spec.refresh", async () => {
 			outputChannel.appendLine("[Manual Refresh] Refreshing spec explorer...");
 			specExplorer.refresh();
 		})
@@ -281,19 +281,19 @@ function registerCommands(
 
 	// Steering commands
 	context.subscriptions.push(
-		commands.registerCommand("kiro-codex-ide.steering.create", async () => {
+		commands.registerCommand("spec-codex-ide.steering.create", async () => {
 			await steeringManager.createCustom();
 		}),
 
 		commands.registerCommand(
-			"kiro-codex-ide.steering.generateInitial",
+			"spec-codex-ide.steering.generateInitial",
 			async () => {
 				await steeringManager.init();
 			}
 		),
 
 		commands.registerCommand(
-			"kiro-codex-ide.steering.refine",
+			"spec-codex-ide.steering.refine",
 			async (item: any) => {
 				// Item is always from tree view
 				const uri = Uri.file(item.resourcePath);
@@ -302,7 +302,7 @@ function registerCommands(
 		),
 
 		commands.registerCommand(
-			"kiro-codex-ide.steering.delete",
+			"spec-codex-ide.steering.delete",
 			async (item: any) => {
 				outputChannel.appendLine(`[Steering] Deleting: ${item.label}`);
 
@@ -320,21 +320,21 @@ function registerCommands(
 
 		// Configuration commands
 		commands.registerCommand(
-			"kiro-codex-ide.steering.createUserRule",
+			"spec-codex-ide.steering.createUserRule",
 			async () => {
 				await steeringManager.createUserConfiguration();
 			}
 		),
 
 		commands.registerCommand(
-			"kiro-codex-ide.steering.createProjectRule",
+			"spec-codex-ide.steering.createProjectRule",
 			async () => {
 				await steeringManager.createProjectDocumentation();
 			}
 		),
 
 		// biome-ignore lint/suspicious/useAwait: ignore
-		commands.registerCommand("kiro-codex-ide.steering.refresh", async () => {
+		commands.registerCommand("spec-codex-ide.steering.refresh", async () => {
 			outputChannel.appendLine(
 				"[Manual Refresh] Refreshing steering explorer..."
 			);
@@ -370,7 +370,7 @@ function registerCommands(
 	// Spec delete command
 	context.subscriptions.push(
 		commands.registerCommand(
-			"kiro-codex-ide.spec.delete",
+			"spec-codex-ide.spec.delete",
 			async (item: any) => {
 				await specManager.delete(item.label);
 			}
@@ -383,13 +383,13 @@ function registerCommands(
 	// Prompts commands
 	context.subscriptions.push(
 		// biome-ignore lint/suspicious/useAwait: ignore
-		commands.registerCommand("kiro-codex-ide.prompts.refresh", async () => {
+		commands.registerCommand("spec-codex-ide.prompts.refresh", async () => {
 			outputChannel.appendLine(
 				"[Manual Refresh] Refreshing prompts explorer..."
 			);
 			promptsExplorer.refresh();
 		}),
-		commands.registerCommand("kiro-codex-ide.prompts.create", async () => {
+		commands.registerCommand("spec-codex-ide.prompts.create", async () => {
 			const ws = workspace.workspaceFolders?.[0];
 			if (!ws) {
 				window.showErrorMessage("No workspace folder found");
@@ -427,7 +427,7 @@ function registerCommands(
 			}
 		}),
 		commands.registerCommand(
-			"kiro-codex-ide.prompts.run",
+			"spec-codex-ide.prompts.run",
 			// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: ignore
 			async (filePathOrItem?: any) => {
 				try {
@@ -469,15 +469,15 @@ function registerCommands(
 	// Group the following commands in a single subscriptions push
 	context.subscriptions.push(
 		// Overview and settings commands
-		commands.registerCommand("kiro-codex-ide.settings.open", async () => {
-			outputChannel.appendLine("Opening Kiro settings...");
+		commands.registerCommand("spec-codex-ide.settings.open", async () => {
+			outputChannel.appendLine("Opening Spec for Codex settings...");
 			await commands.executeCommand(
 				"workbench.action.openSettings",
 				VSC_CONFIG_NAMESPACE
 			);
 		}),
 		commands.registerCommand(
-			"kiro-codex-ide.settings.openGlobalConfig",
+			"spec-codex-ide.settings.openGlobalConfig",
 			async () => {
 				outputChannel.appendLine("Opening global Codex config...");
 				const userHome =
@@ -515,14 +515,14 @@ function registerCommands(
 		),
 
 		// biome-ignore lint/suspicious/useAwait: ignore
-		commands.registerCommand("kiro-codex-ide.help.open", async () => {
-			outputChannel.appendLine("Opening Kiro help...");
-			const helpUrl = "https://github.com/atman-33/kiro-for-codex-ide#readme";
+		commands.registerCommand("spec-codex-ide.help.open", async () => {
+			outputChannel.appendLine("Opening Spec for Codex help...");
+			const helpUrl = "https://github.com/atman-33/spec-for-codex-ide#readme";
 			env.openExternal(Uri.parse(helpUrl));
 		}),
 
-		commands.registerCommand("kiro-codex-ide.menu.open", async () => {
-			outputChannel.appendLine("Opening Kiro menu...");
+		commands.registerCommand("spec-codex-ide.menu.open", async () => {
+			outputChannel.appendLine("Opening Spec for Codex menu...");
 			await toggleViews();
 		})
 	);

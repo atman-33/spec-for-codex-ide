@@ -123,7 +123,7 @@ export class CreateSteeringInputController {
 
 		try {
 			return window.createWebviewPanel(
-				"kiro.createSteeringDialog",
+				"spec-codex.createSteeringDialog",
 				"Create Custom Steering",
 				{
 					viewColumn: ViewColumn.Active,
@@ -141,7 +141,7 @@ export class CreateSteeringInputController {
 			);
 			try {
 				return window.createWebviewPanel(
-					"kiro.createSteeringPanel",
+					"spec-codex.createSteeringPanel",
 					"Create Custom Steering",
 					ViewColumn.Active,
 					{

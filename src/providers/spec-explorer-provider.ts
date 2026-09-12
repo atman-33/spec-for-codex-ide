@@ -12,12 +12,12 @@ import {
 import type { SpecManager } from "../features/spec/spec-manager";
 
 export class SpecExplorerProvider implements TreeDataProvider<SpecItem> {
-	static readonly viewId = "kiro-codex-ide.views.specExplorer";
+	static readonly viewId = "spec-codex-ide.views.specExplorer";
 	static readonly navigateRequirementsCommandId =
-		"kiro-codex-ide.spec.navigate.requirements";
+		"spec-codex-ide.spec.navigate.requirements";
 	static readonly navigateDesignCommandId =
-		"kiro-codex-ide.spec.navigate.design";
-	static readonly navigateTasksCommandId = "kiro-codex-ide.spec.navigate.tasks";
+		"spec-codex-ide.spec.navigate.design";
+	static readonly navigateTasksCommandId = "spec-codex-ide.spec.navigate.tasks";
 	private readonly _onDidChangeTreeData: EventEmitter<
 		SpecItem | undefined | null | void
 	> = new EventEmitter<SpecItem | undefined | null | void>();
