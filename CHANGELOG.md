@@ -2,6 +2,14 @@
 
 ---
 
+## v1.0.0 2026-09-12
+
+### Changed
+
+- Merge pull request #16 from atman-33/task/T-0171
+- rename Kiro for Codex IDE to Spec for Codex IDE
+- Merge pull request #15 from atman-33/version-bump/v0.1.6
+
 ## v0.1.6 2025-10-30
 
 ### Added
