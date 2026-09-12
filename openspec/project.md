@@ -1,7 +1,7 @@
 # Project Context
 
 ## Purpose
-Kiro for Codex IDE is a Visual Studio Code extension that gives Codex CLI users a guided, spec-driven workflow. It keeps specs, steering rules, and reusable prompts in sync with the Codex chat experience so teams can create, review, and execute change proposals without leaving the IDE.
+Spec for Codex IDE is a Visual Studio Code extension that gives Codex CLI users a guided, spec-driven workflow. It keeps specs, steering rules, and reusable prompts in sync with the Codex chat experience so teams can create, review, and execute change proposals without leaving the IDE.
 
 ## Tech Stack
 - TypeScript for the extension runtime, prompt tooling, and shared utilities compiled with `esbuild` for Node 16 targets.

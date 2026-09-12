@@ -5,7 +5,7 @@ import {
 	DEFAULT_VIEW_VISIBILITY,
 	VSC_CONFIG_NAMESPACE,
 } from "../constants";
-export type KiroCodexIdeSettings = {
+export type SpecCodexIdeSettings = {
 	paths: {
 		specs: string;
 		steering: string;
@@ -21,7 +21,7 @@ export type KiroCodexIdeSettings = {
 
 export class ConfigManager {
 	private static instance: ConfigManager;
-	private settings: KiroCodexIdeSettings | null = null;
+	private settings: SpecCodexIdeSettings | null = null;
 	private readonly workspaceFolder: WorkspaceFolder | undefined;
 
 	// Internal constants
@@ -39,13 +39,13 @@ export class ConfigManager {
 	}
 
 	// biome-ignore lint/suspicious/useAwait: ignore
-	async loadSettings(): Promise<KiroCodexIdeSettings> {
+	async loadSettings(): Promise<SpecCodexIdeSettings> {
 		const settings = this.getDefaultSettings();
 		this.settings = settings;
 		return settings;
 	}
 
-	getSettings(): KiroCodexIdeSettings {
+	getSettings(): SpecCodexIdeSettings {
 		if (!this.settings) {
 			this.settings = this.getDefaultSettings();
 		}
@@ -95,9 +95,9 @@ export class ConfigManager {
 	}
 
 	private mergeSettings(
-		defaults: KiroCodexIdeSettings,
-		overrides: Partial<KiroCodexIdeSettings> = {}
-	): KiroCodexIdeSettings {
+		defaults: SpecCodexIdeSettings,
+		overrides: Partial<SpecCodexIdeSettings> = {}
+	): SpecCodexIdeSettings {
 		const mergedPaths = {
 			...defaults.paths,
 			...(overrides.paths ?? {}),
@@ -128,7 +128,7 @@ export class ConfigManager {
 		};
 	}
 
-	private getDefaultSettings(): KiroCodexIdeSettings {
+	private getDefaultSettings(): SpecCodexIdeSettings {
 		const configuredPaths = this.getConfiguredPaths();
 
 		return {
@@ -142,7 +142,7 @@ export class ConfigManager {
 		};
 	}
 	// biome-ignore lint/suspicious/useAwait: ignore
-	async saveSettings(settings: KiroCodexIdeSettings): Promise<void> {
+	async saveSettings(settings: SpecCodexIdeSettings): Promise<void> {
 		this.settings = this.mergeSettings(this.getDefaultSettings(), settings);
 	}
 }

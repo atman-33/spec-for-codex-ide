@@ -120,7 +120,7 @@ export class CreateSpecInputController {
 
 		try {
 			return window.createWebviewPanel(
-				"kiro.createSpecDialog",
+				"spec-codex.createSpecDialog",
 				"Create New Spec",
 				{
 					viewColumn: ViewColumn.Active,
@@ -138,7 +138,7 @@ export class CreateSpecInputController {
 			);
 			try {
 				return window.createWebviewPanel(
-					"kiro.createSpecPanel",
+					"spec-codex.createSpecPanel",
 					"Create New Spec",
 					ViewColumn.Active,
 					{

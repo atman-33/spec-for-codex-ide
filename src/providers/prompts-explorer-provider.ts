@@ -25,10 +25,10 @@ type PromptSource = "project" | "global";
 type TreeEventPayload = PromptItem | undefined | null | void;
 
 export class PromptsExplorerProvider implements TreeDataProvider<PromptItem> {
-	static readonly viewId = "kiro-codex-ide.views.promptsExplorer";
-	static readonly createPromptCommandId = "kiro-codex-ide.prompts.create";
-	static readonly refreshCommandId = "kiro-codex-ide.prompts.refresh";
-	static readonly runPromptCommandId = "kiro-codex-ide.prompts.run";
+	static readonly viewId = "spec-codex-ide.views.promptsExplorer";
+	static readonly createPromptCommandId = "spec-codex-ide.prompts.create";
+	static readonly refreshCommandId = "spec-codex-ide.prompts.refresh";
+	static readonly runPromptCommandId = "spec-codex-ide.prompts.run";
 
 	private readonly changeEmitter = new EventEmitter<TreeEventPayload>();
 	readonly onDidChangeTreeData: Event<TreeEventPayload> =

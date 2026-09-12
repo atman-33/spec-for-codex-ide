@@ -1,11 +1,13 @@
-# Kiro for Codex IDE
+# Spec for Codex IDE
 
-[![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/v/atman-dev.kiro-for-codex-ide.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=atman-dev.kiro-for-codex-ide)
-[![Downloads](https://img.shields.io/vscode-marketplace/d/atman-dev.kiro-for-codex-ide.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=atman-dev.kiro-for-codex-ide)
-[![GitHub stars](https://img.shields.io/github/stars/atman-33/kiro-for-codex-ide.svg?style=flat-square)](https://github.com/atman-33/kiro-for-codex-ide/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/atman-33/kiro-for-codex-ide.svg?style=flat-square)](https://github.com/atman-33/kiro-for-codex-ide/issues)
+[![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/v/atman-dev.spec-for-codex-ide.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=atman-dev.spec-for-codex-ide)
+[![Downloads](https://img.shields.io/vscode-marketplace/d/atman-dev.spec-for-codex-ide.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=atman-dev.spec-for-codex-ide)
+[![GitHub stars](https://img.shields.io/github/stars/atman-33/spec-for-codex-ide.svg?style=flat-square)](https://github.com/atman-33/spec-for-codex-ide/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/atman-33/spec-for-codex-ide.svg?style=flat-square)](https://github.com/atman-33/spec-for-codex-ide/issues)
 
 A VS Code extension that brings spec-driven development to Codex CLI, leveraging the powerful AI capabilities of the [VS Code Codex extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt). Manage your specs, steering documents, and custom prompts visually.
+
+> **Not affiliated with Amazon, AWS, or OpenAI.** Spec for Codex IDE is an independent project. It is compatible with Kiro but is not sponsored by, affiliated with, or endorsed by Amazon.com, Inc. or Amazon Web Services, Inc. "Kiro" is a trademark of Amazon Technologies, Inc.; it is used here only to describe compatibility. "Codex" and "OpenAI" are trademarks of OpenAI. All other trademarks belong to their respective owners.
 
 ![Create new Spec](./screenshots/image.png)
 
@@ -13,7 +15,7 @@ A VS Code extension that brings spec-driven development to Codex CLI, leveraging
 
 ### 📝 Spec Management
 
-- Run `Kiro for Codex IDE: Create New Spec` (`kiro-codex-ide.spec.create`) to open the Create Spec dialog. Provide the required summary alongside optional product context, technical constraints, and open questions; drafts auto-save so you can resume later. Submitting sends the compiled request to the VS Code Codex extension's chat to finish generating the spec.
+- Run `Spec for Codex IDE: Create New Spec` (`spec-codex-ide.spec.create`) to open the Create Spec dialog. Provide the required summary alongside optional product context, technical constraints, and open questions; drafts auto-save so you can resume later. Submitting sends the compiled request to the VS Code Codex extension's chat to finish generating the spec.
 - Browse generated specs in the **Specs** view; each spec exposes Requirements, Design, and Tasks nodes with quick-open commands.
 - Execute individual checklist items from `tasks.md` via the "Start Task" CodeLens, which marks the checklist and passes the task context to the VS Code Codex extension's chat. You can then interact with the chat to execute the task.
 
@@ -36,16 +38,16 @@ A VS Code extension that brings spec-driven development to Codex CLI, leveraging
 - **[VS Code Codex extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) must be installed.** This extension utilizes the Codex Chat functionality provided by the ChatGPT extension to pass prompt contexts.
 
 ### Marketplace (when published)
-Search for "Kiro for Codex IDE" in the VS Code Marketplace and install the extension.
+Search for "Spec for Codex IDE" in the VS Code Marketplace and install the extension.
 
 ### From Local VSIX
-1. Build the package with `npm run package` (produces `kiro-for-codex-ide-<version>.vsix`).
-2. Install via `code --install-extension kiro-for-codex-ide-<version>.vsix`.
+1. Build the package with `npm run package` (produces `spec-for-codex-ide-<version>.vsix`).
+2. Install via `code --install-extension spec-for-codex-ide-<version>.vsix`.
 
 ## Usage
 
 ### Create a Spec
-1. Open the Kiro for Codex IDE activity bar container.
+1. Open the Spec for Codex IDE activity bar container.
 2. Choose **Specs** → **Create New Spec**.
 3. Fill out the Create Spec dialog: the summary is required, while product context, technical constraints, and open questions are optional. Drafts auto-save while you type, and closing the dialog prompts you to discard or resume later.
 4. Press **Create Spec** to send the compiled prompt to the VS Code Codex extension's chat, then continue the guided flow there.
@@ -67,7 +69,7 @@ Search for "Kiro for Codex IDE" in the VS Code Marketplace and install the exten
 3. Use **Run Prompt** to push the file into the Codex Chat (provided by the VS Code Codex extension). You can then interact with the chat to utilize the prompt.
 
 ## Configuration
-All settings live under the `kiro-codex-ide` namespace.
+All settings live under the `spec-codex-ide` namespace.
 
 | Setting | Type | Default | Purpose |
 | --- | --- | --- | --- |
@@ -130,6 +132,6 @@ scripts/
 MIT License. See [`LICENSE`](LICENSE).
 
 ## Credits
-Inspired by the original Kiro project for Claude Code by @notdp, adapted here for Codex CLI workflows.
+Inspired by the open-source "Kiro for CC" project by @notdp, adapted here for Codex CLI workflows.
 
 - Original project: https://github.com/notdp/kiro-for-cc

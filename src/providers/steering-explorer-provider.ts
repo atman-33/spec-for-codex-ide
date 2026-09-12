@@ -19,11 +19,11 @@ import { homedir } from "os";
 export class SteeringExplorerProvider
 	implements TreeDataProvider<SteeringItem>
 {
-	static readonly viewId = "kiro-codex-ide.views.steeringExplorer";
+	static readonly viewId = "spec-codex-ide.views.steeringExplorer";
 	static readonly createUserRuleCommandId =
-		"kiro-codex-ide.steering.createUserRule";
+		"spec-codex-ide.steering.createUserRule";
 	static readonly createProjectRuleCommandId =
-		"kiro-codex-ide.steering.createProjectRule";
+		"spec-codex-ide.steering.createProjectRule";
 	private readonly _onDidChangeTreeData: EventEmitter<
 		SteeringItem | undefined | null | void
 	> = new EventEmitter<SteeringItem | undefined | null | void>();

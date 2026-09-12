@@ -24,7 +24,7 @@ describe("get-webview-content", () => {
 		expect(html).toContain(
 			'href="file:///mock/extension/dist/webview/app/assets/index.css"'
 		);
-		expect(html).toContain("<title>Kiro for Codex IDE</title>");
+		expect(html).toContain("<title>Spec for Codex IDE</title>");
 	});
 
 	// 2. Edge Case: Test getNonce function for correct length and format.
